@@ -31,9 +31,9 @@ gamestartAlert.style.display = "block";
 introText.style.display = "block";
 
 // to start the game again
-startAgain.addEventListener("click", newGame);
+startAgain.addEventListener("click", restartGame);
 
-function newGame() {
+function restartGame() {
     gamestartAlert.style.display = "none";
     winningAlertText.style.display = "none";
     introText.style.display = "none";
@@ -43,12 +43,6 @@ function newGame() {
     counter = 0;
     gameOver = false;
     compInput.length = 0;
-
-    gamestartAlert.style.display = "block";
-    gamestartAlertText.style.display = "block";
-    introText.style.display = "none";
-    buttons.style.display = "none";
-    scoreboard.style.display = "block";
 
 };
 
@@ -63,8 +57,11 @@ function resetGame() {
 // when the game have 2 players
 function startGameHuman() {
 
-    newGame();
-    //defaultLayout();
+    gamestartAlert.style.display = "block";
+    gamestartAlertText.style.display = "block";
+    introText.style.display = "none";
+    buttons.style.display = "none";
+    scoreboard.style.display = "block";
 
 
     setTimeout(function () {
@@ -95,8 +92,10 @@ function startGameHuman() {
                     counter++; // add one to the counter
                     currentState(); // check the current game state
                 };
+
             });
         };
+
     };
 };
 
@@ -105,8 +104,12 @@ function startGameHuman() {
 // when the game playing with computer
 function startGameComp() {
 
-    newGame();
-    //defaultLayout();
+    gamestartAlert.style.display = "block";
+    gamestartAlertText.style.display = "block";
+    introText.style.display = "none";
+    buttons.style.display = "none";
+    scoreboard.style.display = "block";
+
 
     setTimeout(function () {
         gamestartAlert.style.display = "none";
@@ -159,11 +162,7 @@ function startGameComp() {
 };
 
 function defaultLayout(){
-    gamestartAlert.style.display = "block";
-    gamestartAlertText.style.display = "block";
-    introText.style.display = "none";
-    buttons.style.display = "none";
-    scoreboard.style.display = "block";
+    
 }
 
 
