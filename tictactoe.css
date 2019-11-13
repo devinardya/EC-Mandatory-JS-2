@@ -34,7 +34,6 @@ article{
     height: 600px;
     display: flex;
     flex-flow: row wrap;
-    align-content: center;
     justify-content: center;
     margin-top: 20px;
     position: relative;
@@ -48,15 +47,16 @@ article{
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
-    margin: 20px;
+    margin: 40px 0 20px 0;
 }
 
 .block{
-    width: 30%;
-    height: 30%;
+    width: 32.5%;
+    height: 32.5%;
     border: 3px solid burlywood;
     margin: -2px;
     position: relative;
+    top: 0;
 }
 
 .score{
@@ -66,7 +66,7 @@ article{
     align-content: center;
     justify-content: center;
     font-size: 60px;
-    margin-bottom: 20px;
+    margin: 30px 0px -10px 0px;
     color: burlywood;
     display: none;
 }
@@ -80,6 +80,7 @@ article{
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
+    margin-top: 40px;
 }
 
 .startover{
@@ -132,7 +133,7 @@ a{
     z-index: 80;
     background-color: rgb(255, 145, 0);
     left: 50%;
-    transform: translate(-50%, -7%);
+    transform: translate(-50%, 10%);
     display: none;
 }
 
@@ -207,7 +208,7 @@ a{
     .container{
     position: absolute;
     top: 30%;
-    left: 5%;
+    left: 10%;
     width: 80%;
     height: 50%;
 }
