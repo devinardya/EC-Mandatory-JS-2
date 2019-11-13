@@ -119,25 +119,31 @@ function startGameComp(){
             eachblock.addEventListener("click", function(){
                 
                 let a = document.createElement("a");
+                let aComp = document.createElement("a");
                 // if statements to see if the block is empty or not
                 if (block[i].textContent === "" && gameOver === false){
-                    
+                        console.log("my number", i);
                         a.textContent = x;
                         block[i].appendChild(a);
                         counter++;          // add one to the counter
                         currentState();  
                         
                         setTimeout(function(){
-                        i = Math.floor(Math.random() * 10);
-                        a.textContent = o;
-                        block[i].appendChild(a);
-                        counter++;          // add one to the counter
-                        currentState();     // check the current game state
+                            let compInput =[]
+                            i = Math.floor(Math.random() * 9);
+                            compInput.push(i);
+                            console.log("the comp number", i);
+                            console.log("the comp array", compInput);
+
+                            if (i !== compInput.indexOf(i)){
+                                aComp.textContent = o;
+                                block[i].appendChild(aComp);
+                                counter++;          // add one to the counter
+                                currentState();  // check the current game state
+                            }
+                           
                         }, 200);
-                        
-                        
-                    
-                    
+   
                 };
                 
             });
