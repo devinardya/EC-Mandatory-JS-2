@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap');
 
 h1, h2, h3, p, li, ul, a, button, div{
     font-family: 'Montserrat', sans-serif;
@@ -47,7 +47,9 @@ article{
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
-    margin: 40px 0 20px 0;
+    margin: 42px 0 20px 0;
+    position: absolute;
+    top: 13%;
 }
 
 .block{
@@ -73,6 +75,7 @@ article{
 
 .score p {
     text-align: center;
+ 
 }
 
 .below-button{
@@ -112,13 +115,13 @@ a{
 
 .vs{
     background-color: cadetblue;
-    font-size: 17px;
+    font-size: 15px;
     color: white;
     width: 200px;
     height: 30px;
     align-self: center;
     justify-self: center;
-    margin: 50px 5px 0 5px;
+    margin: 9px 5px 0 5px;
     cursor: pointer;
     border-radius: 15px;
     display: block;
@@ -168,12 +171,13 @@ a{
 .intro{
     font-size: 20px;
     text-align: center;
-    padding: 10px 50px;
     position: absolute;
-    top:10%;
+    top:11%;
     line-height: 30px;
     color: rgb(247, 247, 247);
     display: none;
+    left: 17%;
+    font-weight: 600;
 }
 
 @media only screen and (max-width: 500px){
