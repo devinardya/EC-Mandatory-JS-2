@@ -9,6 +9,8 @@ let winningAlertText = document.querySelector(".winning");
 let introText = document.querySelector(".intro");
 let spanP1Score = document.querySelector(".p1");
 let spanP2Score = document.querySelector(".p2");
+let buttons = document.querySelector(".buttons");
+let scoreboard = document.querySelector(".score");
 
 let scorep1 = 0;
 let scorep2 = 0;
@@ -19,6 +21,7 @@ let x = "X"; // even (first player)
 let o = "O"; // odd (second player)
 
 let gameOver = false;
+let compInput =[]
 
 //choosing between playing 2 human players or versus computer
 humanPlayers.addEventListener("click", startGameHuman);
@@ -39,6 +42,7 @@ function restartGame(){
         }
         counter = 0;
         gameOver = false;
+        compInput.length = 0;
     
 };
 
@@ -58,6 +62,8 @@ function startGameHuman(){
     gamestartAlert.style.display = "block";
     gamestartAlertText.style.display = "block";
     introText.style.display = "none";
+    buttons.style.display = "none";
+    scoreboard.style.display = "block";
    
 
     setTimeout(function(){
@@ -97,12 +103,15 @@ function startGameHuman(){
 
 
 
-// when the game have 2 players
+// when the game playing with computer
 function startGameComp(){
     restartGame();
 
     gamestartAlert.style.display = "block";
     gamestartAlertText.style.display = "block";
+    introText.style.display = "none";
+    buttons.style.display = "none";
+    scoreboard.style.display = "block";
    
 
     setTimeout(function(){
@@ -117,33 +126,36 @@ function startGameComp(){
         // add event listeners
         if (counter >= 0 || counter <= 8 ){
             eachblock.addEventListener("click", function(){
+                compInput.push(i);
                 
+                let iRandom = randomNum(compInput);
+            
                 let a = document.createElement("a");
                 let aComp = document.createElement("a");
                 // if statements to see if the block is empty or not
                 if (block[i].textContent === "" && gameOver === false){
+
                         console.log("my number", i);
+                        console.log(compInput);
                         a.textContent = x;
                         block[i].appendChild(a);
                         counter++;          // add one to the counter
-                        currentState();  
+                        currentState();
                         
-                        setTimeout(function(){
-                            let compInput =[]
-                            i = Math.floor(Math.random() * 9);
-                            compInput.push(i);
-                            console.log("the comp number", i);
-                            console.log("the comp array", compInput);
-
-                            if (i !== compInput.indexOf(i)){
-                                aComp.textContent = o;
-                                block[i].appendChild(aComp);
-                                counter++;          // add one to the counter
-                                currentState();  // check the current game state
-                            }
-                           
-                        }, 200);
+                        if (gameOver === false){
+                    
+                                console.log('compInput: ',compInput)
+                                console.log('irandom: ', iRandom)
+                                setTimeout(function(){
    
+                                aComp.textContent = o;
+                                block[iRandom].appendChild(aComp);
+                                aComp.style.color = "burlywood";
+                                counter++;
+                                currentState();
+                                }, 300);   
+                                compInput.push(iRandom)
+                        };
                 };
                 
             });
@@ -152,6 +164,23 @@ function startGameComp(){
     };
 };
 
+
+function randomNum(array){
+
+    let iRandom = Math.floor((Math.random() * 9));
+    console.log("irandom number", iRandom);
+
+    let myindex = 0;
+
+    while (array.indexOf(iRandom) !== -1){
+        iRandom = Math.floor((Math.random() * 9));
+        myindex++;
+        if (myindex > 100){
+            break;
+        }
+    }
+    return iRandom;
+};
 
 
 // true or false if "n" is even
