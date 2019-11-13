@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
-h1, h2, h3, p, li, ul, a{
+h1, h2, h3, p, li, ul, a, button, div{
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -15,7 +15,7 @@ header{
     width: 70%;
     height: 50px;
     border-bottom: 3px dotted burlywood;
-    padding-top: 30px;
+    padding-top: 20px;
     display: flex;
     flex-flow: row wrap;
     align-content: center;
@@ -34,34 +34,55 @@ article{
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 20px;
+    position: relative;
 }
 
 .container{
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.block{
+    width: 160px;
+    height: 160px;
+    border: 3px solid burlywood;
+    margin: -2px;
+    position: relative;
+}
+
+.score{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: burlywood;
+}
+
+.below-button{
     display: flex;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
 }
 
-.block{
-    width: 190px;
-    height: 190px;
-    border: 3px solid burlywood;
-    margin: -1px;
-    position: relative;
-}
-
-button{
-    margin: 0 auto;
-    display: block;
-    width: 585px;
+.startover{
+    margin: 0 10px;
+    display: inline-block;
+    width: 235px;
     height: 50px;
     background-color: cadetblue;
     font-size: 20px;
     color: white;
+    cursor: pointer;
 }
 
 a{
@@ -69,6 +90,68 @@ a{
     font-size: 190px;
     left: 50%;
     transform: translate(-50%);
-    top: 0;
+    top: -10%;
     color:cadetblue;
+}
+
+.buttons{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.vs{
+    background-color: cadetblue;
+    font-size: 17px;
+    color: white;
+    width: 200px;
+    height: 30px;
+    align-self: center;
+    justify-self: center;
+    margin: 0px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.alert{
+    width: 650px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    z-index: 80;
+    background-color: rgb(255, 145, 0);
+    left: 50%;
+    transform: translate(-50%, -7%);
+    display: none;
+}
+
+.gamestart{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    z-index: 99;
+    left: 50%;
+    transform: translate(-25%, -50%);
+    color: rgb(247, 247, 247);
+    display: none;
+}
+
+.winning{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    z-index: 99;
+    left: 50%;
+    color: rgb(247, 247, 247);
+    transform: translate(-31%, -50%);
+    display: block;
+}
+
+.startover:hover, .vs:hover{
+    background-color: rgb(3, 133, 138);
 }

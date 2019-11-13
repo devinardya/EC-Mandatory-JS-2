@@ -14,6 +14,18 @@
         <h1>TIC TAC TOE</h1>
     </header>
     <article>
+        <div class="score">
+            <p><span class="p1"></span> : <span class="p2"></span></p>
+         </div>
+        <div class="buttons">
+            <button class="vs" id="playwithhuman">2 Players</button>
+            <button class="vs" id="playwithcomp">Vs Computer</button>
+        </div>
+        <div class="alert">
+            <div class="gamestart">GAME START</div>
+            <div class="winning">PLAYER 2 IS THE WINNER</div>
+        </div>
+        
         <div class="container">
             <div class="block" id="1"></div>
             <div class="block" id="2"></div>
@@ -26,6 +38,9 @@
             <div class="block" id="9"></div>
         </div>
     </article>
-    <button id="startAgain">START AGAIN</button>
+    <div class="below-button">
+            <button class="startover" id="startAgain">NEW GAME</button>
+            <button class="startover" id="resetAgain">RESTART GAME</button>
+    </div>
 </body>
 </html>
