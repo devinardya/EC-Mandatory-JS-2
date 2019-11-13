@@ -6,6 +6,7 @@ const withComp = document.querySelector("#playwithcomp");
 let gamestartAlert = document.querySelector(".alert");
 let gamestartAlertText = document.querySelector(".gamestart");
 let winningAlertText = document.querySelector(".winning");
+let introText = document.querySelector(".intro");
 let spanP1Score = document.querySelector(".p1");
 let spanP2Score = document.querySelector(".p2");
 
@@ -23,8 +24,8 @@ let gameOver = false;
 humanPlayers.addEventListener("click", startGameHuman);
 withComp.addEventListener("click", startGameComp);
 
-
-
+gamestartAlert.style.display = "block";
+introText.style.display = "block";
 
 // to start the game again
 startAgain.addEventListener("click", restartGame);
@@ -32,6 +33,7 @@ startAgain.addEventListener("click", restartGame);
 function restartGame(){
         gamestartAlert.style.display = "none";
         winningAlertText.style.display = "none";
+        introText.style.display = "none";
         for (let each of block){
             each.innerHTML="";
         }
@@ -55,6 +57,7 @@ function startGameHuman(){
 
     gamestartAlert.style.display = "block";
     gamestartAlertText.style.display = "block";
+    introText.style.display = "none";
    
 
     setTimeout(function(){
@@ -71,7 +74,7 @@ function startGameHuman(){
             eachblock.addEventListener("click", function(){
 
                 let a = document.createElement("a");
-
+                
                 // if statements to see if the block is empty or not
                 if (block[i].textContent === "" && gameOver === false){
                     if (isEven(counter)){
@@ -80,6 +83,7 @@ function startGameHuman(){
                     } else {
                         a.textContent = o;
                         block[i].appendChild(a);
+                        a.style.color = "burlywood";
                     }
                     counter++;          // add one to the counter
                     currentState();     // check the current game state
@@ -115,24 +119,25 @@ function startGameComp(){
             eachblock.addEventListener("click", function(){
                 
                 let a = document.createElement("a");
-                a.style.cursor = "pointer";
                 // if statements to see if the block is empty or not
                 if (block[i].textContent === "" && gameOver === false){
-                    if (isEven(counter)){
+                    
                         a.textContent = x;
                         block[i].appendChild(a);
-                    } else {
-                        eachblock.addEventListener("mouseup", function(){
-                            setTimeout(function(){
-                                i = Math.floor(Math.random() * 10);
-                                a.textContent = o;
-                                block[i].appendChild(a);
-                            }, 100);
-                        })
+                        counter++;          // add one to the counter
+                        currentState();  
                         
-                    }
-                    counter++;          // add one to the counter
-                    currentState();     // check the current game state
+                        setTimeout(function(){
+                        i = Math.floor(Math.random() * 10);
+                        a.textContent = o;
+                        block[i].appendChild(a);
+                        counter++;          // add one to the counter
+                        currentState();     // check the current game state
+                        }, 200);
+                        
+                        
+                    
+                    
                 };
                 
             });
@@ -154,6 +159,7 @@ function currentState(){
     let arrayX = [];
     let arrayO = [];
 
+    console.log(arrayX, arrayO)
     for (let j = 0; j < block.length; j++){
         let input = block[j].textContent;
         if (input === x){
@@ -162,10 +168,11 @@ function currentState(){
             arrayO.push(block[j].id);
         }    
     };
-
+    // check which player is the winner
     checkWinner(arrayX, arrayO)
 };
 
+// a function to check the winner of the game
 function checkWinner(input1, input2){
 
     let arrX = input1;
@@ -199,30 +206,32 @@ function checkWinner(input1, input2){
 
 };
 
+// winning banner for the winner and change game score
+
 function winningCelebration(winner){
     if (winner === "arrX"){
         setTimeout(function(){
-            winningAlertText.textContent = "PLAYER 1 WINS";
-            gamestartAlert.style.display = "block";
-            winningAlertText.style.display = "block";
+            winningText("PLAYER 1 WINS") 
         }, 200);
         scorep1++;
         spanP1Score.textContent = scorep1;
     } else if (winner === "arrO"){
         setTimeout(function(){
-            winningAlertText.textContent = "PLAYER 2 WINS";
-            gamestartAlert.style.display = "block";
-            winningAlertText.style.display = "block";
+            winningText("PLAYER 2 WINS")
         }, 200); 
         scorep2++;
         spanP2Score.textContent = scorep2;  
     }else if (winner === "draw"){
         setTimeout(function(){
-            winningAlertText.textContent = "GAME DRAW";
-            gamestartAlert.style.display = "block";
-            winningAlertText.style.display = "block";
+            winningText("GAME DRAW")
             winningAlertText.style.transform = "translate(-25%, -50%)";
         }, 200); 
     }
 };
+
+function winningText(itext){
+    winningAlertText.textContent = itext;
+    gamestartAlert.style.display = "block";
+    winningAlertText.style.display = "block";
+}
 

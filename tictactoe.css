@@ -149,9 +149,19 @@ a{
     left: 50%;
     color: rgb(247, 247, 247);
     transform: translate(-31%, -50%);
-    display: block;
+    display: none;
 }
 
 .startover:hover, .vs:hover{
     background-color: rgb(3, 133, 138);
+}
+
+.intro{
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 50px;
+    position: absolute;
+    top:10%;
+    line-height: 30px;
+    display: none;
 }
