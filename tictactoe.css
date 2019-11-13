@@ -184,14 +184,20 @@ a{
     }
 
     .block{
-        width: 80px;
-        height: 80px;
+        width: 95px;
+        height: 95px;
+    }
+
+    .buttons{
+        position: absolute;
+        top: 2%;
+        margin-bottom: 20px;
     }
 
 
     article{
     width: 375px;
-    height: 500px;
+    height: 450px;
 }
 
     .vs{
@@ -199,6 +205,9 @@ a{
 }
 
     .container{
+    position: absolute;
+    top: 30%;
+    left: 5%;
     width: 80%;
     height: 50%;
 }
@@ -206,7 +215,7 @@ a{
     .alert{
     width: 300px;
     height: 80px;
-    top: 51.2%;
+    top: 52%;
 }
 
     .intro{
