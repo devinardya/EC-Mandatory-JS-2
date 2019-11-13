@@ -190,13 +190,12 @@ function checkWinner(input1, input2){
         if (arrO.indexOf(num1) !== -1 && arrO.indexOf(num2) !== -1 && arrO.indexOf(num3) !== -1 ){
             winningCelebration("arrO")
             gameOver = true;
-        } 
-
-        if (counter === 9){
-            winningCelebration("draw")
-            gameOver = true;
-        }
+        }  
     };
+    if (counter === 9 && gameOver !== true){
+        winningCelebration("draw")
+        gameOver = true;
+    }
 
 };
 
