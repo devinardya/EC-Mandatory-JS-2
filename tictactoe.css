@@ -30,17 +30,20 @@ header h1{
 }
 
 article{
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
     margin-top: 20px;
     position: relative;
+    margin: auto;
 }
 
 .container{
-    width: 500px;
-    height: 500px;
+    width: 80%;
+    height: 80%;
     display: flex;
     flex-flow: row wrap;
     align-content: center;
@@ -49,8 +52,8 @@ article{
 }
 
 .block{
-    width: 160px;
-    height: 160px;
+    width: 30%;
+    height: 30%;
     border: 3px solid burlywood;
     margin: -2px;
     position: relative;
@@ -168,5 +171,61 @@ a{
     position: absolute;
     top:10%;
     line-height: 30px;
+    color: rgb(247, 247, 247);
     display: none;
+}
+
+@media only screen and (max-width: 500px){
+
+    header{
+        width: 70%;
+        height: 50px;
+        margin: auto;
+    }
+
+    .block{
+        width: 80px;
+        height: 80px;
+    }
+
+
+    article{
+    width: 375px;
+    height: 500px;
+}
+
+    .vs{
+    margin: 10px 5px 0 5px;
+}
+
+    .container{
+    width: 80%;
+    height: 50%;
+}
+
+    .alert{
+    width: 300px;
+    height: 80px;
+    top: 51.2%;
+}
+
+    .intro{
+    font-size: 15px;
+    line-height: 20px;
+    top:0%;
+}
+
+    .gamestart{
+    font-size: 20px;
+
+}
+
+    .winning{
+    font-size: 20px;
+}
+
+    a{
+    top: -6%;
+    font-size: 90px;
+}
 }
