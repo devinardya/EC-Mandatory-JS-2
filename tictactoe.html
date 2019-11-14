@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TIC TAC TOE</title>
     <script src="tictactoe.js" defer></script>
-    <link rel="stylesheet" href="reset.css"/>
-    <link rel="stylesheet" href="tictactoe.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="tictactoe.css" />
 </head>
+
 <body>
-    
+
     <header>
         <h1>TIC TAC TOE</h1>
     </header>
     <article>
         <div class="score">
             <p><span class="p1"></span> : <span class="p2"></span></p>
-         </div>
-       <!-- <div class="buttons">
-            <button class="vs" id="playwithhuman">2 Players</button>
-            <button class="vs" id="playwithcomp">Vs Computer</button>
-        </div>-->
+        </div>
         <div class="alert">
             <div class="intro">
                 <p>SELECT GAME MODE</p>
                 <div class="buttons">
-                        <button class="vs" id="playwithhuman">2 Players</button>
-                        <button class="vs" id="playwithcomp">vs. Computer</button>
+                    <button class="vs" id="playwithhuman"><i class="material-icons">group</i>2 Players</button>
+                    <button class="vs" id="playwithcomp">vs. Computer</button>
                 </div>
+                <p class="text">The computer will automatically be the 2nd player</p>
             </div>
             <div class="gamestart">GAME START</div>
             <div class="winning"></div>
         </div>
-        
+
         <div class="container">
             <div class="block" id="1"></div>
             <div class="block" id="2"></div>
@@ -47,9 +47,13 @@
         </div>
     </article>
     <div class="below-button">
-            <button class="startover" id="startAgain">NEW GAME</button>
-            <button class="startover" id="resetAgain">RESET GAME</button>
+        <button class="startover" id="startAgain">NEW GAME</button>
+        <button class="startover" id="resetAgain">RESET GAME</button>
     </div>
     <div class="blackscreen"></div>
+    <footer>
+        <p>Devina A.Paramita Na - Helsingborg 2019</p>
+    </footer>
 </body>
+
 </html>

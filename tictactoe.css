@@ -1,21 +1,30 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap');
 
-h1, h2, h3, p, li, ul, a, button, div{
+h1,
+h2,
+h3,
+p,
+li,
+ul,
+a,
+button,
+div {
     font-family: 'Montserrat', sans-serif;
 }
 
-button{
+button {
     border: none;
 }
 
-body{
-    max-width: 900px;
-    max-height: 1200px;
+body {
+    width: 100vw;
+    height: 100vh;
     margin: 0 auto;
     position: relative;
+    background: cadetblue;
 }
 
-header{
+header {
     width: 70%;
     height: 50px;
     border-bottom: 3px dotted burlywood;
@@ -27,13 +36,13 @@ header{
     margin: auto;
 }
 
-header h1{
+header h1 {
     font-size: 40px;
     text-align: center;
-    color: cadetblue;
+    color: #fff;
 }
 
-article{
+article {
     width: 600px;
     height: 600px;
     display: flex;
@@ -43,7 +52,8 @@ article{
     position: relative;
     margin: auto;
 }
-.blackscreen{
+
+.blackscreen {
     width: 100%;
     height: 100vh;
     background: #000;
@@ -53,7 +63,7 @@ article{
     top: 0;
 }
 
-.container{
+.container {
     width: 80%;
     height: 80%;
     display: flex;
@@ -65,7 +75,7 @@ article{
     top: 13%;
 }
 
-.block{
+.block {
     width: 32.5%;
     height: 32.5%;
     border: 3px solid burlywood;
@@ -74,38 +84,43 @@ article{
     top: 0;
 }
 
-.block:nth-child(1){
+.block:nth-child(1) {
     border-left: none;
     border-top: none;
 }
 
-.block:nth-child(2){
+.block:nth-child(2) {
     border-top: none;
 }
-.block:nth-child(3){
+
+.block:nth-child(3) {
     border-right: none;
     border-top: none;
 }
-.block:nth-child(4){
+
+.block:nth-child(4) {
     border-left: none;
 }
 
-.block:nth-child(6){
+.block:nth-child(6) {
     border-right: none;
 }
-.block:nth-child(7){
+
+.block:nth-child(7) {
     border-left: none;
     border-bottom: none;
 }
-.block:nth-child(8){
+
+.block:nth-child(8) {
     border-bottom: none;
 }
-.block:nth-child(9){
+
+.block:nth-child(9) {
     border-right: none;
     border-bottom: none;
 }
 
-.score{
+.score {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
@@ -113,47 +128,47 @@ article{
     justify-content: center;
     font-size: 60px;
     margin: 30px 0px -10px 0px;
-    color: burlywood;
+    color: rgb(241, 241, 241);
     display: none;
 }
 
 .score p {
     text-align: center;
- 
+
 }
 
-.below-button{
+.below-button {
     display: none;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
     margin-top: 40px;
-   
+
 }
 
-.startover{
+.startover {
     margin: 0 10px;
     display: inline-block;
     width: 235px;
     height: 50px;
-    background-color: cadetblue;
+    background-color: transparent;
     font-size: 20px;
-    color: white;
+    color:rgb(241, 241, 241);
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 0px;
     z-index: 9999;
 }
 
-a{
+a {
     position: absolute;
-    font-size: 190px;
+    font-size: 170px;
     left: 50%;
     transform: translate(-50%);
-    top: -10%;
-    color:cadetblue;
+    top: -5%;
+    color: rgb(241, 241, 241);
 }
 
-.buttons{
+.buttons {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -161,7 +176,7 @@ a{
     margin-top: 10px;
 }
 
-.vs{
+.vs {
     background-color: cadetblue;
     font-size: 18px;
     color: #fff;
@@ -171,11 +186,12 @@ a{
     justify-self: center;
     margin: 9px 5px 0 5px;
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 0px;
     display: block;
+    padding: 2px 7px;
 }
 
-.alert{
+.alert {
     width: 400px;
     height: 180px;
     position: absolute;
@@ -192,17 +208,7 @@ a{
     border-radius: 15px;
 }
 
-.gamestart{
-    width: 100%;
-    font-size: 40px;
-    z-index: 99;
-    color: rgb(247, 247, 247);
-    display: none;
-    text-align: center;
-   padding-top: 68px;
-}
-
-.winning{
+.gamestart {
     width: 100%;
     font-size: 40px;
     z-index: 99;
@@ -210,101 +216,222 @@ a{
     display: none;
     text-align: center;
     padding-top: 68px;
-  
 }
 
-.startover:hover, .vs:hover{
+.winning {
+    width: 100%;
+    font-size: 40px;
+    z-index: 99;
+    color: rgb(247, 247, 247);
+    display: none;
+    text-align: center;
+    padding-top: 68px;
+
+}
+
+.startover:hover,
+.vs:hover {
     background-color: rgb(3, 133, 138);
     color: #fff;
 }
 
-.intro{
+.intro {
     font-size: 30px;
     text-align: center;
     line-height: 30px;
     color: rgb(247, 247, 247);
     display: none;
     font-weight: 600;
-    padding-top:40px;
+    padding-top: 35px;
+}
+
+.text{
+    font-size: 11px;
+}
+
+.material-icons{
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    margin-right: 5px;
+}
+
+footer p {
+    color: rgb(247, 247, 247);
+    font-size: 9px;
+    text-align: center;
+    margin-top: 15px;
 }
 
 @media only screen and (max-width: 500px){
 
-    header{
+    header {
         width: 70%;
         height: 50px;
         margin: auto;
     }
 
-    .block{
+    .block {
         width: 95px;
         height: 95px;
     }
 
-    .buttons{
-        position: absolute;
-        top: 27%;
+    .buttons {
         margin-bottom: 20px;
-        left:0%;
     }
 
 
-    article{
-    width: 375px;
-    height: 450px;
+    article {
+        width: 375px;
+        height: 450px;
+    }
+
+    .vs {
+        margin: 10px 5px 0 5px;
+        height: 45px;
+        width: 180px;
+    }
+
+    .container {
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 80%;
+        height: 50%;
+    }
+
+    .alert {
+        width: 300px;
+        height: 200px;
+        top: 49%;
+    }
+
+    .intro {
+        font-size: 23px;
+        line-height: 20px;
+        padding: 20px 0;
+    }
+
+    .gamestart {
+        font-size: 45px;
+        padding-top: 55px;
+        font-weight: 600;
+    }
+
+    .winning {
+        font-size: 45px;
+        padding-top: 55px;
+        font-weight: 600;
+    }
+
+    .text{
+        font-size: 10px;
+        margin-top: -10px;
+    }
+
+    a {
+        top: 2%;
+        font-size: 90px;
+    }
+
+    .startover {
+        display: inline-block;
+        width: 300px;
+        height: 50px;
+        font-size: 15px;
+        border-radius: 0px;
+        margin-bottom: 10px;
+        background-color: rgb(3, 133, 138) ;
+    }
 }
 
-    .vs{
-    margin: 10px 5px 0 5px;
-    height: 45px;
-    width: 180px;
-}
+@media only screen and (max-width: 330px){
 
-    .container{
-    position: absolute;
-    top: 30%;
-    left: 10%;
-    width: 80%;
-    height: 50%;
-}
+    body{
+        width: 100vw;
+        height: 100vh;
+    }
 
-    .alert{
-    width: 300px;
-    height: 200px;
-    top: 49%;
-}
+    header {
+        width: 100%;
+        height: 50px;
+        margin: auto;
+    }
 
-    .intro{
-    font-size: 23px;
-    line-height: 20px;
-    padding-top:30px;
-}
+    .block {
+        width: 80px;
+        height: 80px;
+    }
 
-    .gamestart{
-    font-size: 45px;
-    padding-top:55px;
-    font-weight: 600;
-}
 
-    .winning{
-    font-size: 45px;
-    padding-top:55px;
-    font-weight: 600;
-}
+    .score{
+        margin-top:9px;
+        font-size: 42px;
+    }
 
-    a{
-    top: -6%;
-    font-size: 90px;
-}
 
-.startover{
-    display: inline-block;
-    width: 150px;
-    height: 45px;
-    font-size: 15px;
-}
+    article {
+        width: 100%;
+        height: 64%;
+    }
 
-a{
-    top: 2%;
-}
+    .vs {
+        margin: 10px 5px 0 5px;
+        height: 45px;
+        width: 180px;
+    }
+
+    .container {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        width: 80%;
+        height: 50%;
+    }
+
+    .alert {
+        width: 280px;
+        height: 200px;
+        top: 38%;
+    }
+
+    .intro {
+        font-size: 23px;
+        line-height: 20px;
+        padding-top: 18px;
+    }
+
+    .text{
+        font-size: 9px;
+    }
+
+    .gamestart {
+        font-size: 45px;
+        padding-top: 55px;
+        font-weight: 600;
+    }
+
+    .winning {
+        font-size: 45px;
+        padding-top: 55px;
+        font-weight: 600;
+    }
+
+    a {
+        top: 0%;
+        font-size: 80px;
+    }
+
+    .startover {
+        font-size: 13px;
+    }
+
+    .below-button{
+        margin-top: 0;
+    }
+
+    footer p {
+        margin-top: -4px;
+    }
+
 }

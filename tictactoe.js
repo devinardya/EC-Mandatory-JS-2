@@ -34,6 +34,7 @@ withComp.addEventListener("click", function () {
     startGame("computer");
 });
 
+// start menu so the players can pick which mode they want to play
 gamestartAlert.style.display = "block";
 introText.style.display = "block";
 
@@ -59,8 +60,9 @@ reset.addEventListener("click", resetGame);
 
 function resetGame() {
     location.reload();
-}
+};
 
+// function to show/hide different element on the game when it's starts
 function defaultLayout() {
     gamestartAlert.style.display = "block";
     gamestartAlertText.style.display = "block";
@@ -74,8 +76,9 @@ function defaultLayout() {
         belowButton.style.display = "flex";
         scoreboard.style.display = "block";
     }, 1000);
-}
+};
 
+//to run the game on both mode (vs.humans or vs.computer)
 function startGame(input) {
 
     defaultLayout();
@@ -94,6 +97,7 @@ function startGame(input) {
                 //AI do random number
                 let iRandom = randomNum(allInput);
 
+                // create HTML elements to show X or O
                 let a = document.createElement("a");
                 let aComp = document.createElement("a");
 
@@ -110,7 +114,7 @@ function startGame(input) {
                         } else { // creating O for second player
                             a.textContent = o;
                             block[i].appendChild(a);
-                            a.style.color = "burlywood";
+                            a.style.color = "rgb(3, 97, 100)";
                         }
                         counter++; // add one to the counter
                         currentState(); // check the current game state
@@ -120,6 +124,7 @@ function startGame(input) {
                     // if the game versus computer
 
                     if (input === "computer") {
+
                         //console.log("my number", i);
                         //console.log(compInput);
 
@@ -141,13 +146,14 @@ function startGame(input) {
                                 //creating O for the computer with random numbers
                                 aComp.textContent = o;
                                 block[iRandom].appendChild(aComp);
-                                aComp.style.color = "burlywood";
+                                aComp.style.color = "rgb(3, 97, 100)";
                                 counter++;
                                 currentState();
                             }, 300);
                             allInput.push(iRandom)
                         };
                     };
+                
                 };
             });
         };
@@ -176,6 +182,7 @@ function randomNum(array) {
             break;
         }
     }
+    // returning one random number = computer's move
     return iRandom;
 };
 
@@ -188,10 +195,11 @@ function isEven(n) {
 // function to check the current game state
 function currentState() {
 
+    // empty arrays for saving player 1 and player 2 inputs
     let arrayX = [];
     let arrayO = [];
 
-    console.log(arrayX, arrayO)
+    // looping through all blocks and push which id of the block that has been chosen
     for (let j = 0; j < block.length; j++) {
         let input = block[j].textContent;
         if (input === x) {
