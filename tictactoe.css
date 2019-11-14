@@ -4,11 +4,15 @@ h1, h2, h3, p, li, ul, a, button, div{
     font-family: 'Montserrat', sans-serif;
 }
 
+button{
+    border: none;
+}
 
 body{
     max-width: 900px;
     max-height: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 header{
@@ -39,6 +43,15 @@ article{
     position: relative;
     margin: auto;
 }
+.blackscreen{
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    opacity: 0.5;
+    z-index: 99999;
+    position: absolute;
+    top: 0;
+}
 
 .container{
     width: 80%;
@@ -61,6 +74,37 @@ article{
     top: 0;
 }
 
+.block:nth-child(1){
+    border-left: none;
+    border-top: none;
+}
+
+.block:nth-child(2){
+    border-top: none;
+}
+.block:nth-child(3){
+    border-right: none;
+    border-top: none;
+}
+.block:nth-child(4){
+    border-left: none;
+}
+
+.block:nth-child(6){
+    border-right: none;
+}
+.block:nth-child(7){
+    border-left: none;
+    border-bottom: none;
+}
+.block:nth-child(8){
+    border-bottom: none;
+}
+.block:nth-child(9){
+    border-right: none;
+    border-bottom: none;
+}
+
 .score{
     width: 100%;
     display: flex;
@@ -79,11 +123,12 @@ article{
 }
 
 .below-button{
-    display: flex;
+    display: none;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
     margin-top: 40px;
+   
 }
 
 .startover{
@@ -95,6 +140,8 @@ article{
     font-size: 20px;
     color: white;
     cursor: pointer;
+    border-radius: 15px;
+    z-index: 9999;
 }
 
 a{
@@ -111,14 +158,15 @@ a{
     flex-flow: row wrap;
     justify-content: center;
     align-content: center;
+    margin-top: 10px;
 }
 
 .vs{
     background-color: cadetblue;
-    font-size: 15px;
-    color: white;
-    width: 200px;
-    height: 30px;
+    font-size: 18px;
+    color: #fff;
+    width: 160px;
+    height: 45px;
     align-self: center;
     justify-self: center;
     margin: 9px 5px 0 5px;
@@ -128,56 +176,56 @@ a{
 }
 
 .alert{
-    width: 650px;
-    height: 100px;
+    width: 400px;
+    height: 180px;
     position: absolute;
     top: 50%;
     font-size: 50px;
-    z-index: 80;
-    background-color: rgb(255, 145, 0);
+    z-index: 99999999999;
+    background-color: burlywood;
     left: 50%;
-    transform: translate(-50%, 10%);
+    transform: translate(-50%, -17%);
     display: none;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    border-radius: 15px;
 }
 
 .gamestart{
     width: 100%;
-    position: absolute;
-    top: 50%;
-    font-size: 50px;
+    font-size: 40px;
     z-index: 99;
-    left: 50%;
-    transform: translate(-25%, -50%);
     color: rgb(247, 247, 247);
     display: none;
+    text-align: center;
+   padding-top: 68px;
 }
 
 .winning{
     width: 100%;
-    position: absolute;
-    top: 50%;
-    font-size: 50px;
+    font-size: 40px;
     z-index: 99;
-    left: 50%;
     color: rgb(247, 247, 247);
-    transform: translate(-31%, -50%);
     display: none;
+    text-align: center;
+    padding-top: 68px;
+  
 }
 
 .startover:hover, .vs:hover{
     background-color: rgb(3, 133, 138);
+    color: #fff;
 }
 
 .intro{
-    font-size: 20px;
+    font-size: 30px;
     text-align: center;
-    position: absolute;
-    top:11%;
     line-height: 30px;
     color: rgb(247, 247, 247);
     display: none;
-    left: 17%;
     font-weight: 600;
+    padding-top:40px;
 }
 
 @media only screen and (max-width: 500px){
@@ -195,8 +243,9 @@ a{
 
     .buttons{
         position: absolute;
-        top: 2%;
+        top: 27%;
         margin-bottom: 20px;
+        left:0%;
     }
 
 
@@ -207,6 +256,8 @@ a{
 
     .vs{
     margin: 10px 5px 0 5px;
+    height: 45px;
+    width: 180px;
 }
 
     .container{
@@ -219,27 +270,41 @@ a{
 
     .alert{
     width: 300px;
-    height: 80px;
-    top: 52%;
+    height: 200px;
+    top: 49%;
 }
 
     .intro{
-    font-size: 15px;
+    font-size: 23px;
     line-height: 20px;
-    top:0%;
+    padding-top:30px;
 }
 
     .gamestart{
-    font-size: 20px;
-
+    font-size: 45px;
+    padding-top:55px;
+    font-weight: 600;
 }
 
     .winning{
-    font-size: 20px;
+    font-size: 45px;
+    padding-top:55px;
+    font-weight: 600;
 }
 
     a{
     top: -6%;
     font-size: 90px;
+}
+
+.startover{
+    display: inline-block;
+    width: 150px;
+    height: 45px;
+    font-size: 15px;
+}
+
+a{
+    top: 2%;
 }
 }
