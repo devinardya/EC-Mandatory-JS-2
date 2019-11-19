@@ -43,8 +43,8 @@ header h1 {
 }
 
 article {
-    width: 600px;
-    height: 600px;
+    width: 550px;
+    height: 550px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -161,12 +161,25 @@ article {
 
 a {
     position: absolute;
-    font-size: 170px;
+    font-size: 120px;
     left: 50%;
     transform: translate(-50%);
-    top: -5%;
+    top: 8%;
     color: rgb(241, 241, 241);
+    animation-name: thesign;
+    animation-duration: 0.5s;
 }
+
+@keyframes thesign{
+    from {
+        font-size: 0px;
+        top: 50%;
+    }
+    to {
+        font-size: 120px;
+        top: 8%;
+    }
+  }
 
 .buttons {
     display: flex;
@@ -332,7 +345,20 @@ footer p {
     a {
         top: 2%;
         font-size: 90px;
+        animation-name: thesign;
+        animation-duration: 0.5s;
     }
+
+    @keyframes thesign{
+        from {
+            font-size: 0px;
+            top: 60%;
+        }
+        to {
+            font-size: 90px;
+            top: 2%;
+        }
+      }
 
     .startover {
         display: inline-block;

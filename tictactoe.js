@@ -14,17 +14,25 @@ let scoreboard = document.querySelector(".score");
 let blackscreen = document.querySelector(".blackscreen");
 let belowButton = document.querySelector(".below-button");
 
-
+//scoreboard when the game just started
 let scorep1 = 0;
 let scorep2 = 0;
 spanP1Score.textContent = scorep1;
 spanP2Score.textContent = scorep2;
-let counter = 0;
-let x = "X"; // even (first player)
-let o = "O"; // odd (second player)
 
+//counter to count how many block has been click
+let counter = 0;
+
+//create the character to use on the game
+let x = "X"; // for first player
+let o = "O"; // for second player
+
+//boolean to check if the game is over or not
 let gameOver = false;
+
+//array to note all the steps taken by both players
 let allInput = []
+//console.log(allInput);
 
 //choosing between playing 2 human players or versus computer
 humanPlayers.addEventListener("click", function () {
@@ -91,11 +99,13 @@ function startGame(input) {
         if (counter >= 0 || counter <= 8) {
             eachblock.addEventListener("click", function () {
 
-                //pushing all input from both users (humans or humans + comp)
+                //pushing all input from both users (humans or human + comp)
                 allInput.push(i);
+                //console.log(allInput);
 
                 //AI do random number
                 let iRandom = randomNum(allInput);
+                //console.log(iRandom);
 
                 // create HTML elements to show X or O
                 let a = document.createElement("a");
@@ -116,7 +126,7 @@ function startGame(input) {
                             block[i].appendChild(a);
                             a.style.color = "rgb(3, 97, 100)";
                         }
-                        counter++; // add one to the counter
+                        counter++; // 1 block is been filled, add 1 to the counter
                         currentState(); // check the current game state
 
                     };
@@ -125,31 +135,29 @@ function startGame(input) {
 
                     if (input === "computer") {
 
-                        //console.log("my number", i);
-                        //console.log(compInput);
+                        console.log("my number", i);
 
                         //creating X for first player
                         a.textContent = x;
                         block[i].appendChild(a);
-                        counter++; // add one to the counter
+                        counter++; 
                         currentState();
 
                         //checking if the game is not over, then AI still can make a move
                         if (gameOver === false) {
 
-                            //console.log('compInput: ', compInput)
-                            //console.log('irandom: ', iRandom)
+                            console.log('irandom: ', iRandom)
 
-                            // set timer so the AI can make a move after 0.3 seconds after the player made his/her move
+                            // set timer so the AI can make a move after 0.5 seconds after the player made his/her move
                             setTimeout(function () {
 
                                 //creating O for the computer with random numbers
                                 aComp.textContent = o;
                                 block[iRandom].appendChild(aComp);
                                 aComp.style.color = "rgb(3, 97, 100)";
-                                counter++;
+                                counter++; 
                                 currentState();
-                            }, 300);
+                            }, 500);
                             allInput.push(iRandom)
                         };
                     };
@@ -199,6 +207,8 @@ function currentState() {
     let arrayX = [];
     let arrayO = [];
 
+    //console.log(arrayX, arrayO);
+
     // looping through all blocks and push which id of the block that has been chosen
     for (let j = 0; j < block.length; j++) {
         let input = block[j].textContent;
@@ -209,7 +219,7 @@ function currentState() {
         }
     };
     // check which player is the winner
-    checkWinner(arrayX, arrayO)
+    checkWinner(arrayX, arrayO);
 };
 
 // a function to check the winner of the game
@@ -221,19 +231,23 @@ function checkWinner(input1, input2) {
     // all the winning combinations
     let winningComb = ["123", "456", "789", "147", "369", "357", "159", "258"];
 
+    //looping through the winning combination array
     for (let k = 0; k < winningComb.length; k++) {
         let numArr = winningComb[k].split("");
+        //console.log(numArr);
 
         let num1 = numArr[0]; // first winning number
         let num2 = numArr[1]; // second winning number
         let num3 = numArr[2]; // third winning number
 
         // check if Player One is the winner
+        //if the player click all the boxes with the same index numbers  as in the array
         if (arrX.indexOf(num1) !== -1 && arrX.indexOf(num2) !== -1 && arrX.indexOf(num3) !== -1) {
             winningCelebration("arrX")
             gameOver = true;
         }
         // check if Player Two is the winner
+        //if the player click all the boxes with the same index numbers  as in the array
         if (arrO.indexOf(num1) !== -1 && arrO.indexOf(num2) !== -1 && arrO.indexOf(num3) !== -1) {
             winningCelebration("arrO")
             gameOver = true;
@@ -254,20 +268,19 @@ function winningCelebration(winner) {
     if (winner === "arrX") {
         setTimeout(function () {
             winningText("PLAYER 1 WINS")
-        }, 200);
+        }, 400);
         scorep1++;
         spanP1Score.textContent = scorep1;
     } else if (winner === "arrO") {
         setTimeout(function () {
             winningText("PLAYER 2 WINS")
-        }, 200);
+        }, 400);
         scorep2++;
         spanP2Score.textContent = scorep2;
     } else if (winner === "draw") {
         setTimeout(function () {
             winningText("GAME DRAW")
-            //winningAlertText.style.transform = "translate(-25%, -50%)";
-        }, 200);
+        }, 400);
     }
 };
 
@@ -278,4 +291,4 @@ function winningText(itext) {
     winningAlertText.style.display = "block";
     blackscreen.style.display = "block";
     blackscreen.style.zIndex = "9";
-}
+};
