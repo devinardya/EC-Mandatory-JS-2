@@ -120,6 +120,29 @@ article {
     border-bottom: none;
 }
 
+.p1-dot{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 196, 0);
+    border-radius: 20px;
+    display: block;
+    position: absolute;
+    left: 35%;
+    display: none;
+}
+
+.p2-dot{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 196, 0);
+    border-radius: 20px;
+    display: block;
+    position: absolute;
+    right: 35%;
+    top: 5.5%;
+    display: none;
+}
+
 .score {
     width: 100%;
     display: flex;

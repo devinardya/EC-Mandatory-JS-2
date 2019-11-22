@@ -3,16 +3,19 @@ const startAgain = document.querySelector("#startAgain");
 const reset = document.querySelector("#resetAgain");
 const humanPlayers = document.querySelector("#playwithhuman");
 const withComp = document.querySelector("#playwithcomp");
-let gamestartAlert = document.querySelector(".alert");
-let gamestartAlertText = document.querySelector(".gamestart");
-let winningAlertText = document.querySelector(".winning");
-let introText = document.querySelector(".intro");
-let spanP1Score = document.querySelector(".p1");
-let spanP2Score = document.querySelector(".p2");
-let buttons = document.querySelector(".buttons");
-let scoreboard = document.querySelector(".score");
-let blackscreen = document.querySelector(".blackscreen");
-let belowButton = document.querySelector(".below-button");
+const gamestartAlert = document.querySelector(".alert");
+const gamestartAlertText = document.querySelector(".gamestart");
+const winningAlertText = document.querySelector(".winning");
+const introText = document.querySelector(".intro");
+const spanP1Score = document.querySelector(".p1");
+const spanP2Score = document.querySelector(".p2");
+const buttons = document.querySelector(".buttons");
+const scoreboard = document.querySelector(".score");
+const blackscreen = document.querySelector(".blackscreen");
+const belowButton = document.querySelector(".below-button");
+const p1Indicator = document.querySelector(".p1-dot");
+const p2Indicator = document.querySelector(".p2-dot");
+
 
 //scoreboard when the game just started
 let scorep1 = 0;
@@ -54,6 +57,7 @@ function restartGame() {
     winningAlertText.style.display = "none";
     introText.style.display = "none";
     blackscreen.style.display = "none";
+    p1Indicator.style.display = "block";
     for (let each of block) {
         each.innerHTML = "";
     }
@@ -76,6 +80,7 @@ function defaultLayout() {
     gamestartAlertText.style.display = "block";
     introText.style.display = "none";
     buttons.style.display = "none";
+    p1Indicator.style.display = "block";
 
     setTimeout(function () {
         gamestartAlert.style.display = "none";
@@ -90,6 +95,8 @@ function defaultLayout() {
 function startGame(input) {
 
     defaultLayout();
+
+    
 
     // initiating the game
     for (let i = 0; i < block.length; i++) {
@@ -121,10 +128,20 @@ function startGame(input) {
                         if (isEven(counter)) {
                             a.textContent = x;
                             block[i].appendChild(a);
+
+                            setTimeout(function(){
+                                p1Indicator.style.display = "none";
+                                p2Indicator.style.display = "block";
+                            }, 400)
+                            
                         } else { // creating O for second player
                             a.textContent = o;
                             block[i].appendChild(a);
                             a.style.color = "rgb(3, 97, 100)";
+                            setTimeout(function(){
+                                p1Indicator.style.display = "block";
+                                p2Indicator.style.display = "none";
+                            }, 400)
                         }
                         counter++; // 1 block is been filled, add 1 to the counter
                         currentState(); // check the current game state
@@ -140,6 +157,10 @@ function startGame(input) {
                         //creating X for first player
                         a.textContent = x;
                         block[i].appendChild(a);
+                        setTimeout(function(){
+                            p1Indicator.style.display = "none";
+                            p2Indicator.style.display = "block";
+                        }, 400)
                         counter++; 
                         currentState();
 
@@ -148,16 +169,20 @@ function startGame(input) {
 
                             console.log('irandom: ', iRandom)
 
-                            // set timer so the AI can make a move after 0.5 seconds after the player made his/her move
+                            // set timer so the AI can make a move after 0.7 seconds after the player made his/her move
                             setTimeout(function () {
 
                                 //creating O for the computer with random numbers
                                 aComp.textContent = o;
                                 block[iRandom].appendChild(aComp);
                                 aComp.style.color = "rgb(3, 97, 100)";
+                                setTimeout(function(){
+                                    p1Indicator.style.display = "block";
+                                    p2Indicator.style.display = "none";
+                                }, 400)
                                 counter++; 
                                 currentState();
-                            }, 500);
+                            }, 700);
                             allInput.push(iRandom)
                         };
                     };
@@ -268,19 +293,26 @@ function winningCelebration(winner) {
     if (winner === "arrX") {
         setTimeout(function () {
             winningText("PLAYER 1 WINS")
+            p2Indicator.style.display = "none";
         }, 400);
+        
         scorep1++;
         spanP1Score.textContent = scorep1;
     } else if (winner === "arrO") {
         setTimeout(function () {
             winningText("PLAYER 2 WINS")
+            p1Indicator.style.display = "none";
         }, 400);
+        
         scorep2++;
         spanP2Score.textContent = scorep2;
     } else if (winner === "draw") {
         setTimeout(function () {
             winningText("GAME DRAW")
+            p1Indicator.style.display = "none";
+            p2Indicator.style.display = "none";
         }, 400);
+       
     }
 };
 
