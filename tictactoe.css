@@ -155,7 +155,6 @@ article {
 
 .score p {
     text-align: center;
-
 }
 
 .below-button {
@@ -390,18 +389,19 @@ footer p {
         margin-bottom: 10px;
         background-color: rgb(3, 133, 138) ;
     }
+    .p1-dot{
+        left: 30%;
+        display: none;
+    }
+    
+    .p2-dot{
+        right: 30%;
+        top: 5.5%;
+        display: none;
+    }
 }
 
-.p1-dot{
-    left: 30%;
-    display: none;
-}
 
-.p2-dot{
-    right: 30%;
-    top: 5.5%;
-    display: none;
-}
 
 @media only screen and (max-width: 330px){
 
